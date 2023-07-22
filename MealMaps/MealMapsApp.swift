@@ -9,6 +9,13 @@ import SwiftUI
 
 @main
 struct MealMapsApp: App {
+    init(){
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
+    }
+    
+    
     var body: some Scene {
         WindowGroup {
             AppTapView()
