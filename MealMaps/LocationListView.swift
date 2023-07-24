@@ -13,36 +13,42 @@ struct LocationListView: View {
             ScrollView{
                 VStack{
                     ForEach(0..<10) { _ in
-                        HStack(spacing: 25){
-                            Image("default-square-asset")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 80, height: 80)
-                                .clipShape(Circle())
-                                .padding(.vertical, 8)
-                            
-                            VStack(alignment: .leading){
-                                Text("Test Location Name")
-                                    .font(.title3)
-                                    .lineLimit(1)
-                                    .fontWeight(.semibold)
-                                    .minimumScaleFactor(0.75)
+                        NavigationLink {
+                            LocationDetailView()
+                        } label: {
+                            HStack(spacing: 25){
+                                Image("default-square-asset")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80, height: 80)
+                                    .clipShape(Circle())
+                                    .padding(.vertical, 8)
                                 
-                                HStack{
-                                    AvatarView()
-                                    AvatarView()
-                                    AvatarView()
-                                    AvatarView()
-                                    AvatarView()
+                                VStack(alignment: .leading){
+                                    Text("Test Location Name")
+                                        .foregroundColor(.primary)
+                                        .font(.title3)
+                                        .lineLimit(1)
+                                        .fontWeight(.semibold)
+                                        .minimumScaleFactor(0.75)
+                                    
+                                    HStack{
+                                        AvatarView(size: 35)
+                                        AvatarView(size: 35)
+                                        AvatarView(size: 35)
+                                        AvatarView(size: 35)
+                                        AvatarView(size: 35)
+                                    }
                                 }
+                                .padding()
                             }
-                            .padding()
                         }
+
                         Divider()
                     }
                 }
             }
-            .navigationTitle("Grub Spots")
+            .navigationTitle("Meal Spots")
         }
     }
 }
@@ -54,11 +60,13 @@ struct LocationListView_Previews: PreviewProvider {
 }
 
 struct AvatarView: View {
+    var size: CGFloat
+    
     var body: some View {
         Image("default-avatar")
             .resizable()
             .scaledToFit()
-            .frame(width: 35, height: 35)
+            .frame(width: size, height: size)
             .clipShape(Circle())
     }
 }
