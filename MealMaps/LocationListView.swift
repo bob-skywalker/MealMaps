@@ -16,31 +16,7 @@ struct LocationListView: View {
                         NavigationLink {
                             LocationDetailView()
                         } label: {
-                            HStack(spacing: 25){
-                                Image("default-square-asset")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 80, height: 80)
-                                    .clipShape(Circle())
-                                    .padding(.vertical, 8)
-                                
-                                VStack(alignment: .leading){
-                                    Text("Test Location Name")
-                                        .foregroundColor(.primary)
-                                        .font(.title3)
-                                        .lineLimit(1)
-                                        .fontWeight(.semibold)
-                                        .minimumScaleFactor(0.75)
-                                    
-                                    HStack{
-                                        AvatarView(size: 35)
-                                        AvatarView(size: 35)
-                                        AvatarView(size: 35)
-                                        AvatarView(size: 35)
-                                        AvatarView(size: 35)
-                                    }
-                                }
-                                .padding()
+                            LocationCell()
                             }
                         }
 
@@ -49,9 +25,10 @@ struct LocationListView: View {
                 }
             }
             .navigationTitle("Meal Spots")
+
         }
     }
-}
+
 
 struct LocationListView_Previews: PreviewProvider {
     static var previews: some View {
@@ -68,5 +45,37 @@ struct AvatarView: View {
             .scaledToFit()
             .frame(width: size, height: size)
             .clipShape(Circle())
+    }
+}
+
+
+struct LocationCell: View {
+    var body: some View {
+        HStack(spacing: 25){
+            Image("default-square-asset")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
+                .clipShape(Circle())
+                .padding(.vertical, 8)
+            
+            VStack(alignment: .leading){
+                Text("Test Location Name")
+                    .foregroundColor(.primary)
+                    .font(.title3)
+                    .lineLimit(1)
+                    .fontWeight(.semibold)
+                    .minimumScaleFactor(0.75)
+                
+                HStack{
+                    AvatarView(size: 35)
+                    AvatarView(size: 35)
+                    AvatarView(size: 35)
+                    AvatarView(size: 35)
+                    AvatarView(size: 35)
+                }
+            }
+            .padding()
+        }
     }
 }

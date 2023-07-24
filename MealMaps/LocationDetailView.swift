@@ -9,97 +9,95 @@ import SwiftUI
 
 struct LocationDetailView: View {
     @Environment(\.dismiss) var dismiss
-        
+    
     var items = [
         GridItem(.adaptive(minimum: 115))
     ]
     
     var body: some View {
-        NavigationView{
-            ScrollView{
+            VStack(spacing: 13){
+                Image("default-banner-asset")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 120)
                 
-                VStack(spacing: 13){
-                    Image("default-banner-asset")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 120)
+                HStack{
+                    Label("123 Main St", systemImage: "mappin.and.ellipse")
+                        .font(.callout)
+                        .foregroundColor(.secondary)
                     
-                    HStack{
-                        Label("123 Main St", systemImage: "mappin.and.ellipse")
-                            .font(.callout)
-                            .foregroundColor(.secondary)
-                        
-                        Spacer()
-                    }
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                Text("This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description.")
+                    .lineLimit(3)
+                    .minimumScaleFactor(0.75)
+                    .frame(height: 70)
                     .padding(.horizontal)
+                
+                ZStack {
+                    Capsule()
+                        .foregroundColor(.gray.opacity(0.2))
+                        .frame(height: 95)
                     
-                    Text("This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description.")
-                        .lineLimit(3)
-                        .minimumScaleFactor(0.75)
-                        .padding(.horizontal)
-                    
-                    ZStack {
-                        Capsule()
-                            .foregroundColor(.gray.opacity(0.2))
-                            .frame(height: 95)
+                    HStack(spacing: 30){
+                        Link(destination: URL(string: "https://www.apple.com")!) {
+                            LocationActionButton(imageName: "location.circle.fill", imageColor: .brandPrimary)
+                        }
                         
-                        HStack(spacing: 30){
-                            Link(destination: URL(string: "https://www.apple.com")!) {
-                                LocationActionButton(imageName: "location.circle.fill", imageColor: .brandPrimary)
-                            }
-                            
-                            Link(destination: URL(string: "https://www.apple.com")!) {
-                                LocationActionButton(imageName: "globe", imageColor: .brandPrimary)
-                            }
-                            
-                            Link(destination: URL(string: "https://www.apple.com")!) {
-                                LocationActionButton(imageName: "phone.circle.fill", imageColor: .brandPrimary)
-                            }
-                            
-                            Link(destination: URL(string: "https://www.apple.com")!) {
-                                LocationActionButton(imageName: "person.crop.circle.badge.xmark", imageColor: .brandPrimary)
-                            }
-                            
+                        Link(destination: URL(string: "https://www.apple.com")!) {
+                            LocationActionButton(imageName: "globe", imageColor: .brandPrimary)
+                        }
+                        
+                        Link(destination: URL(string: "https://www.apple.com")!) {
+                            LocationActionButton(imageName: "phone.circle.fill", imageColor: .brandPrimary)
+                        }
+                        
+                        Link(destination: URL(string: "https://www.apple.com")!) {
+                            LocationActionButton(imageName: "person.crop.circle.badge.xmark", imageColor: .brandPrimary)
                         }
                         
                     }
-                    .padding(.horizontal)
                     
-                    Text("Who's here?")
-                        .bold()
-                        .font(.title2)
-                    
+                }
+                .padding(.horizontal)
+                
+                Text("Who's here?")
+                    .bold()
+                    .font(.title2)
+                
+                ScrollView(.vertical){
                     LazyVGrid(columns: items) {
                         ForEach(0..<12) { _ in
                             FirstNameAvatarView(userName: "Bo Zhong", size: 64)
                         }
                     }
-                    .padding()
-                    
-                    
-                    Spacer()
-                    
-                    
                 }
-                .navigationTitle("Location Name")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden()
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Dismiss") {
-                            dismiss()
-                        }
-                        .accentColor(.blue)
+                
+                Spacer()
+                
+            }
+            .navigationTitle("Location Name")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Dismiss") {
+                        dismiss()
                     }
+                    .accentColor(.brandPrimary)
                 }
             }
-        }
+        
     }
 }
 
+
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationDetailView()
+        NavigationView {
+            LocationDetailView()
+        }
     }
 }
 
