@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C517EF22A709549006292CF /* MealMapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C517EF12A709549006292CF /* MealMapLocation.swift */; };
 		5CC281AD2A6A21C700807C86 /* MealMapsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC281AC2A6A21C700807C86 /* MealMapsApp.swift */; };
 		5CC281B12A6A21C900807C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC281B02A6A21C900807C86 /* Assets.xcassets */; };
 		5CC281B42A6A21C900807C86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC281B32A6A21C900807C86 /* Preview Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C517EF12A709549006292CF /* MealMapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealMapLocation.swift; sourceTree = "<group>"; };
 		5CC281A92A6A21C700807C86 /* MealMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC281AC2A6A21C700807C86 /* MealMapsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealMapsApp.swift; sourceTree = "<group>"; };
 		5CC281B02A6A21C900807C86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +45,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C517EEE2A709505006292CF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5CC281BB2A6B0E5F00807C86 /* Color+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5C517EEF2A70951A006292CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C517EF12A709549006292CF /* MealMapLocation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C517EF02A709524006292CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CC281BD2A6B0EB800807C86 /* AppTapView.swift */,
+				5CC281C52A6C4C7F00807C86 /* LocationDetailView.swift */,
+				5CC281BF2A6B0EF600807C86 /* LocationMapView.swift */,
+				5CC281C12A6B0F1400807C86 /* LocationListView.swift */,
+				5CC281C32A6B0F2200807C86 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5CC281A02A6A21C700807C86 = {
 			isa = PBXGroup;
 			children = (
@@ -62,14 +92,11 @@
 		5CC281AB2A6A21C700807C86 /* MealMaps */ = {
 			isa = PBXGroup;
 			children = (
+				5C517EF02A709524006292CF /* Views */,
+				5C517EEF2A70951A006292CF /* Model */,
+				5C517EEE2A709505006292CF /* Extensions */,
 				5CC281BA2A6B0A0900807C86 /* MealMaps.entitlements */,
 				5CC281AC2A6A21C700807C86 /* MealMapsApp.swift */,
-				5CC281BB2A6B0E5F00807C86 /* Color+Ext.swift */,
-				5CC281BD2A6B0EB800807C86 /* AppTapView.swift */,
-				5CC281C52A6C4C7F00807C86 /* LocationDetailView.swift */,
-				5CC281BF2A6B0EF600807C86 /* LocationMapView.swift */,
-				5CC281C12A6B0F1400807C86 /* LocationListView.swift */,
-				5CC281C32A6B0F2200807C86 /* ProfileView.swift */,
 				5CC281B02A6A21C900807C86 /* Assets.xcassets */,
 				5CC281B22A6A21C900807C86 /* Preview Content */,
 			);
@@ -160,6 +187,7 @@
 				5CC281C62A6C4C7F00807C86 /* LocationDetailView.swift in Sources */,
 				5CC281AD2A6A21C700807C86 /* MealMapsApp.swift in Sources */,
 				5CC281C42A6B0F2200807C86 /* ProfileView.swift in Sources */,
+				5C517EF22A709549006292CF /* MealMapLocation.swift in Sources */,
 				5CC281BC2A6B0E5F00807C86 /* Color+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
