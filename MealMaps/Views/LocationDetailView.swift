@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LocationDetailView: View {
     @Environment(\.dismiss) var dismiss
+    var location: MealMapLocation
     
     var items = [
         GridItem(.adaptive(minimum: 115))
@@ -22,7 +23,7 @@ struct LocationDetailView: View {
                     .frame(height: 120)
                 
                 HStack{
-                    Label("123 Main St", systemImage: "mappin.and.ellipse")
+                    Label(location.address, systemImage: "mappin.and.ellipse")
                         .font(.callout)
                         .foregroundColor(.secondary)
                     
@@ -30,7 +31,7 @@ struct LocationDetailView: View {
                 }
                 .padding(.horizontal)
                 
-                Text("This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description.")
+                Text(location.description)
                     .lineLimit(3)
                     .minimumScaleFactor(0.75)
                     .frame(height: 70)
@@ -46,7 +47,7 @@ struct LocationDetailView: View {
                             LocationActionButton(imageName: "location.circle.fill", imageColor: .brandPrimary)
                         }
                         
-                        Link(destination: URL(string: "https://www.apple.com")!) {
+                        Link(destination: URL(string: location.websiteURL)!) {
                             LocationActionButton(imageName: "globe", imageColor: .brandPrimary)
                         }
                         
@@ -78,7 +79,7 @@ struct LocationDetailView: View {
                 Spacer()
                 
             }
-            .navigationTitle("Location Name")
+            .navigationTitle(location.name)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -96,7 +97,7 @@ struct LocationDetailView: View {
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LocationDetailView()
+            LocationDetailView(location: MealMapLocation(record: MockData.location))
         }
     }
 }
