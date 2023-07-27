@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CloudKit
 
 struct LocationMapView: View {
     
@@ -23,6 +24,16 @@ struct LocationMapView: View {
                     .frame(height: 120)
                     .shadow(radius: 10)
                 Spacer()
+            }
+        }
+        .onAppear {
+            CloudKitManager.getLocations { result in
+                switch result {
+                case .success(let locations):
+                    print(locations)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
